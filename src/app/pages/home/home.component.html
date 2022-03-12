@@ -3,13 +3,14 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">First</th>
+        <th scope="col">Descripción de la oferta</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
+      <tr *ngFor="let oferta of this.ofertas">
+        <th scope="row">{{oferta.id}}</th>
+        <td>{{oferta.titulo}}</td>
       </tr>
     </tbody>
 </table>
+<div class="alert-danger" *ngIf="!ofertas">¡No se encontraron ofertas!</div>
