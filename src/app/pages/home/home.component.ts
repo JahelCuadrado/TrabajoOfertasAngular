@@ -39,10 +39,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
-
-  verOferta(oferta:Oferta){
-    this.router.navigate(['/oferta', oferta]);
+  verOferta(id:any):void{
+    this.router.navigate(['/oferta', id]);
   }
 
 

@@ -10,11 +10,12 @@
       <tr *ngFor="let oferta of this.ofertas">
         <th scope="row">{{oferta.id}}</th>
         <td>{{oferta.titulo}}</td>
-        <td><button class="btn btn-primary" (click)="verOferta(oferta)">Ver oferta</button></td>
+        <td><button class="btn btn-primary" (click)="verOferta(oferta.id)">Ver oferta</button></td>
         <td><button class="btn btn-danger" *ngIf="hayUsuario" >Eliminar</button></td>
       </tr>
     </tbody>
 </table>
 <div class="alert-danger" *ngIf="!ofertas">¡No se encontraron ofertas!</div>
 </body>
+
 
