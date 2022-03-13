@@ -1,6 +1,7 @@
-a.nav-link{
-  margin-right: 50px;
+.divcenter{
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
 }
-button{
-  margin-left: 20px;
-}
+
+

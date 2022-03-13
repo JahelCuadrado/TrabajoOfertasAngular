@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [OfertaService, LoginService]
 })
 export class HomeComponent implements OnInit {
 
@@ -40,9 +41,32 @@ export class HomeComponent implements OnInit {
   }
 
   verOferta(id:any):void{
-    this.router.navigate(['/oferta', id]);
+    this.router.navigate(['oferta', id]);
   }
 
+  cargarOfertas(): void {
+    this.ofertaService.getListadoOfertas().subscribe(
+        response => {
+            this.ofertas = response;
+        },
+        error => {
+            console.log('Error ' + JSON.stringify(error));
+        }
+
+
+    );
+}
+
+borrarOferta(id: any): void {
+  
+    if (confirm('¿Estás seguro?')) {
+      this.ofertaService.eliminarOferta(id).subscribe(
+        response => {
+            this.cargarOfertas();
+        });
+
+    }
+}
 
 
 }

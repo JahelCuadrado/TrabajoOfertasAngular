@@ -4,6 +4,7 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Descripción de la oferta</th>
+        <th scope="col"><button class="btn btn-danger" *ngIf="hayUsuario" >Añadir nueva oferta</button></th>
       </tr>
     </thead>
     <tbody>
@@ -11,7 +12,7 @@
         <th scope="row">{{oferta.id}}</th>
         <td>{{oferta.titulo}}</td>
         <td><button class="btn btn-primary" (click)="verOferta(oferta.id)">Ver oferta</button></td>
-        <td><button class="btn btn-danger" *ngIf="hayUsuario" >Eliminar</button></td>
+        <td><button class="btn btn-danger" *ngIf="hayUsuario" (click)="borrarOferta(oferta.id)">Eliminar</button></td>
       </tr>
     </tbody>
 </table>

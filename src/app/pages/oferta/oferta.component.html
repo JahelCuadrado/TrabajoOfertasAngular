@@ -1,1 +1,19 @@
-
+<div class="container divcenter">
+  <div class="row">
+      <div class="col-md-12">
+          <h2 style="float: left">Oferta</h2>
+          <button type="submit" class="btn btn-secondary" type="button" (click)="this.goBack()" style="float: right; margin-right: 20%">Volver</button>
+      </div>
+      <hr>
+  </div>
+  <div class="card mb-3">
+      <div class="card-body" >
+          <h5 class="card-title"><b>{{ this.oferta.titulo }}</b></h5>
+          <p class="card-text"><i style="color: #476b6b;">Descripción:</i> {{ this.oferta.descripcion }}</p>
+          <p class="card-text"><i style="color: #476b6b;">Empresa:</i> {{ this.oferta.empresa }}</p>
+          <p class="card-text"><i style="color: #476b6b;">Salario:</i> {{ this.oferta.salario }} €</p>
+          <p class="card-text"><i style="color: #476b6b;">Ciudad:</i> {{ this.oferta.ciudad }}</p>
+          <p class="card-text"><i style="color: #476b6b;">Email:</i> {{ this.oferta.email }}</p>
+      </div>
+  </div>
+</div>
