@@ -58,14 +58,16 @@ export class HomeComponent implements OnInit {
 }
 
 borrarOferta(id: any): void {
-  
     if (confirm('¿Estás seguro?')) {
       this.ofertaService.eliminarOferta(id).subscribe(
         response => {
             this.cargarOfertas();
         });
-
     }
+}
+
+public nuevaOferta(): void{
+  this.router.navigate(['/nueva-oferta']);
 }
 
 

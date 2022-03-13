@@ -4,7 +4,7 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Descripción de la oferta</th>
-        <th scope="col"><button class="btn btn-danger" *ngIf="hayUsuario" >Añadir nueva oferta</button></th>
+        <th scope="col"><button class="btn btn-danger" *ngIf="hayUsuario" (click)="nuevaOferta()">Añadir nueva oferta</button></th>
       </tr>
     </thead>
     <tbody>

@@ -1,1 +1,40 @@
-<p>nueva-oferta works!</p>
+<div class="container divcenter">
+  <div class="row">
+      <div class="col-md-12">
+          <h2 style="float: left">Crea una nueva oferta</h2>
+          <button type="submit" class="btn btn-secondary" type="button" (click)="this.goToOfertas()" style="float: right; margin-right: 20%" >Volver</button>
+      </div>
+      <hr>
+      <div class="col-md-12">
+          <form name="form" (ngSubmit)="onCreate()" #f="ngForm">
+              <div class="form-group">
+                  <label for="titulo">Título *</label>
+                  <input type="text" maxlength="100" class="form-control" name="titulo" #titulo [(ngModel)]="oferta.titulo" id="titulo">
+              </div>
+              <div class="form-group">
+                  <label for="descripcion">Descripcion *</label>
+                  <input type="text" maxlength="300" class="form-control" name="descripcion" #descripcion [(ngModel)]="oferta.descripcion" id="descripcion">
+              </div>
+              <div class="form-group">
+                  <label for="empresa">Empresa *</label>
+                  <input type="text" maxlength="50" class="form-control" name="empresa" #empresa [(ngModel)]="oferta.empresa" id="empresa">
+              </div>
+              <div class="form-group">
+                  <label for="salario">Salario *</label>
+                  <input type="number" class="form-control" name="salario" #salario [(ngModel)]="oferta.salario" id="salario">
+              </div>
+              <div class="form-group">
+                  <label for="ciudad">Ciudad *</label>
+                  <input type="text" maxlength="50" class="form-control" name="ciudad" #ciudad [(ngModel)]="oferta.ciudad" id="ciudad">
+              </div>
+              <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" maxlength="50" class="form-control" name="email" [(ngModel)]="oferta.email" id="email">
+              </div>
+
+              <br>
+              <button type="submit" class="btn btn-primary">Añadir</button>
+          </form>
+      </div>
+  </div>
+</div>

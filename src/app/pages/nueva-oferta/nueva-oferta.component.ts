@@ -1,4 +1,8 @@
+import { OfertaService } from './../../servicios/oferta.service';
+import { Oferta } from 'src/app/model/oferta';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nueva-oferta',
@@ -7,9 +11,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevaOfertaComponent implements OnInit {
 
-  constructor() { }
+  public oferta: Oferta = new Oferta();
+  public formOferta: FormGroup;
 
-  ngOnInit(): void {
+  constructor(
+      private ofertaService: OfertaService,
+      private router: Router,
+      private fb: FormBuilder
+  ) {
+      this.formOferta = this.fb.group({
+          titulo: ['', [Validators.required]],
+          email: ['', [Validators.required], Validators.email],
+          salario: ['', [Validators.required]],
+          empresa: ['', [Validators.required]],
+          descripcion: ['', [Validators.required]],
+          ciudad: ['', [Validators.required]],
+      });
+   }
+
+  ngOnInit(): void { }
+
+  public onCreate(): void {
+      this.ofertaService.crearOferta(this.oferta).subscribe(
+          response => {
+              this.goToOfertas();
+          },
+          error => {
+              console.log('Error ' + JSON.stringify(error));
+          }
+      );
+  }
+
+  public goToOfertas(): void{
+      this.router.navigate(['/home/ofertas']);
   }
 
 }
