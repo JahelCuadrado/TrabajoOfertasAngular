@@ -1,0 +1,14 @@
+button{
+  right: auto;
+}
+
+body{
+  max-width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-top: 50px;
+}
+
+thead{
+  margin-bottom: 50px;
+}

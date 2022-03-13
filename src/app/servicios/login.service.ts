@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Login} from "../model/login";
 import {BehaviorSubject, map, Observable} from "rxjs";
 import {Loginout} from "../model/loginout";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class LoginService {
   private loginBehaviourSubject: BehaviorSubject<Loginout | null>;
   public login: Observable<Loginout | null>;
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private route: Router) {
     this.loginBehaviourSubject = new BehaviorSubject<Loginout | null>(JSON.parse(<string>localStorage?.getItem('login')));
     this.login = this.loginBehaviourSubject.asObservable();
   }
@@ -40,7 +41,7 @@ export class LoginService {
   logout():void{
     localStorage.removeItem('login');
     this.loginBehaviourSubject.next(null);
-    // TODO: Redigir al LOGIN.
+    this.route.navigate(['/login']);
   }
 
 }
