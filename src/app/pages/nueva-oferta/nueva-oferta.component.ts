@@ -1,3 +1,4 @@
+import { LoginService } from './../../servicios/login.service';
 import { OfertaService } from './../../servicios/oferta.service';
 import { Oferta } from 'src/app/model/oferta';
 import { Component, OnInit } from '@angular/core';
@@ -7,7 +8,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-nueva-oferta',
   templateUrl: './nueva-oferta.component.html',
-  styleUrls: ['./nueva-oferta.component.css']
+  styleUrls: ['./nueva-oferta.component.css'],
+  providers: [ LoginService ]
 })
 export class NuevaOfertaComponent implements OnInit {
 
@@ -44,6 +46,10 @@ export class NuevaOfertaComponent implements OnInit {
 
   public goToOfertas(): void{
       this.router.navigate(['/home/ofertas']);
+  }
+
+  public volver(): void{
+    this.router.navigate(['/home']);
   }
 
 }
