@@ -1,7 +1,11 @@
 .alert{
-  display: none;
+  padding: 3px;
 }
 
-.visible{
-  display: block;
+label, button{
+  margin-top: 15px;
+}
+
+.validateColor{
+  color: red;
 }
