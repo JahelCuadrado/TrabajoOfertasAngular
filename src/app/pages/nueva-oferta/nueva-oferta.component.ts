@@ -15,41 +15,49 @@ export class NuevaOfertaComponent implements OnInit {
 
   public oferta: Oferta = new Oferta();
   public formOferta: FormGroup;
+  public formularioValido:boolean=false;
 
   constructor(
       private ofertaService: OfertaService,
       private router: Router,
-      private fb: FormBuilder
+      private formBuilder: FormBuilder
   ) {
-      this.formOferta = this.fb.group({
-          titulo: ['', [Validators.required]],
-          email: ['', [Validators.required], Validators.email],
+      this.formOferta = this.formBuilder.group({
+          titulo: ['', [Validators.required],[Validators.maxLength(100)]],
+          email: ['', [Validators.required],[Validators.maxLength(50)]],
           salario: ['', [Validators.required]],
-          empresa: ['', [Validators.required]],
-          descripcion: ['', [Validators.required]],
-          ciudad: ['', [Validators.required]],
+          empresa: ['', [Validators.required],[Validators.maxLength(50)]],
+          descripcion: ['', [Validators.required],[Validators.maxLength(300)]],
+          ciudad: ['', [Validators.required],[Validators.maxLength(50)]],
       });
    }
 
   ngOnInit(): void { }
 
-  public onCreate(): void {
+  public crearOferta(): void {
+    this.formularioValido=false;
+   // if(this.formOferta.valid){
       this.ofertaService.crearOferta(this.oferta).subscribe(
           response => {
-              this.goToOfertas();
+              this.goToHome();
           },
           error => {
               console.log('Error ' + JSON.stringify(error));
           }
       );
+       // }else{
+        //  this.formularioValido=true;
+       // }
   }
 
-  public goToOfertas(): void{
-      this.router.navigate(['/home/ofertas']);
+  public goToHome(): void{
+      this.router.navigate(['/home']);
   }
 
   public volver(): void{
     this.router.navigate(['/home']);
   }
+
+
 
 }
