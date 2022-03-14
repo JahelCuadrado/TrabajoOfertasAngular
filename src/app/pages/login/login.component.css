@@ -281,3 +281,8 @@ input[type=text]:placeholder {
 #icon {
   width:60%;
 }
+
+img{
+  width: 150px;
+  padding: 50px;
+}
