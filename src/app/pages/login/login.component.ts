@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   formularioLogin: FormGroup;
+  msg:boolean=false;
 
   constructor(private formBuilder: FormBuilder,
     private loginService: LoginService,
@@ -32,13 +33,14 @@ export class LoginComponent implements OnInit {
     let loginIn: Login = new Login(this.formularioLogin.controls['username'].value,
     this.formularioLogin.controls['password'].value,
     false);
+    this.msg=true;
 
     this.loginService.hacerLogin(loginIn).subscribe(login => {
     console.log('Inicio sesion ' + JSON.stringify(login));
     this.route.navigate(['/home']);
+
   });
-
-
 }
+
 
 }

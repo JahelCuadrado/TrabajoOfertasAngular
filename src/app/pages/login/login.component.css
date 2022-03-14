@@ -27,7 +27,10 @@ h2 {
   color: #cccccc;
 }
 
-
+.alert{
+  max-width: 450px;
+  margin: auto;
+}
 
 /* STRUCTURE */
 
